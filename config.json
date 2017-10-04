@@ -1,0 +1,8 @@
+{
+  "imgs": {
+    "start": "./images/today-imgs/",
+    "display": "./images/today-imgs-display/",
+    "display_dir": "/images/today-imgs-display/",
+    "used": "./images/today-imgs-used/"
+  }
+}

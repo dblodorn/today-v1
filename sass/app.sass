@@ -1,0 +1,88 @@
+$large-width: 750px
+$med-width: 530px
+$bg-color: #fff8e6
+$base-spacer: 4vmin
+
+@import reset
+@import mixins
+
+body
+  font-family: helvetica
+  margin: 0
+  padding: 0
+  height: 100%
+  background-color: $bg-color
+  padding: 0 $base-spacer $base-spacer
+  +large
+    overflow: hidden
+    height: 100vh
+
+aside
+  transition: opacity 750ms ease
+  background-color: $bg-color
+  width: 100vw
+  height: 100vh
+  display: none
+  justify-content: center
+  align-items: center
+  position: fixed
+  top: 0
+  left: 0
+  opacity: 0
+  z-index: 1000
+
+body.pop
+  aside
+    display: flex
+    cursor: pointer
+
+.pop-img.scale
+  transform: scale(1)
+  opacity: 1
+
+.pop-img
+  width: 80vw
+  height: 90vh
+  max-width: 1240px
+  transform: scale(0.85)
+  opacity: 0
+  transition: all 100ms ease
+  background:
+    size: contain
+    repeat: no-repeat
+    position: center
+
+ul#images
+  transition: opacity 1000ms ease
+  opacity: 0
+  width: 100%
+  max-width: 1600px
+  display: flex
+  flex-direction: column
+  align-items: center
+  margin: $base-spacer auto 0
+  position: relative
+  +large
+    align-items: flex-start
+    flex-direction: row
+    justify-content: space-between
+    margin: 22vh auto 0
+  li
+    width: 100%
+    max-width: 340px
+    padding-bottom: $base-spacer
+    transform: scale(0.99)
+    transition: all 250ms ease
+    &:hover
+      cursor: pointer
+      transform: scale(1) translateZ(1px)
+    +medium
+      max-width: 58vmin
+      width: 58vmin
+    +large
+      width: 18%
+      max-width: 18%
+      padding-bottom: 0
+
+#time
+  display: none
