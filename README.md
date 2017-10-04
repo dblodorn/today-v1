@@ -1,6 +1,7 @@
 # TODAY - V.1.0 ⏳
 
-Art / Creative - [Sebasian Pardo](http://memory.is/ "Memory.is")
+Art / Creative - [Sebasian Pardo](http://memory.is/ "Memory.is")  
+  
 Development - [Dain Blodorn Kim](https://dain.kim/ "Dain.Kim")
 
 ----------
