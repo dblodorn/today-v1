@@ -34,5 +34,5 @@ gulp.task('image-pick', function(cb) {
     'pluck',
     'move-five',
     'clean-plucked',
-    cb);
+  cb);
 });

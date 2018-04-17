@@ -8,8 +8,5 @@ socketImageSwap('http://localhost:3001');
 // socketImageSwap('http://today.sebastianpardo.com');
 
 window.addEventListener('load', (event) => {
-  setTimeout(() => {
-    document.getElementById('images').style.opacity = 1;
-  }, 150);
   imagePop();
 });

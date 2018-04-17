@@ -54,6 +54,7 @@ const sced1 = schedule.scheduleJob('* * * * * *', () => {
 // APP ROUTES
 app.get('/', (req, res, socket) => {
   app.todayImages = listImages(config.imgs.display);
+  console.log('today', app.todayImages)
   res.render('index', {
     images: app.todayImages,
     time: app.time

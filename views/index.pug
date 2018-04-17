@@ -11,10 +11,11 @@ html
     script(src="dist/app.js")
     link(rel="stylesheet" href='dist/app.css' media='all')
   body
-    aside
-      .pop-img
-    ul#images
-      each img, index in images
-        li(id="img" + index class='img-wrap')
-          image(src= '/' + img)
-    #time= time
+    main
+      aside#popup
+        .pop-img
+      ul#images
+        each img, index in images
+          li(id="img" + index class='img-wrap')
+            image(src= '/' + img)
+      #time= time

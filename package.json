@@ -28,16 +28,11 @@
     "pug": "^2.0.0-rc.2",
     "run-sequence": "^2.2.0",
     "socket.io": "^2.0.3",
-    "transform-runtime": "^0.0.0",
-    "uglifyify": "^4.0.4",
-    "watchify": "^3.9.0"
+    "transform-runtime": "^0.0.0"
   },
   "devDependencies": {},
   "scripts": {
-    "start": "node app.js",
-    "lint": "eslint src/js/**/*.js",
-    "dev": "watchify js/client/index.js -o public/app.js -t [ babelify --presets [ es2015 react ] ]",
-    "build": "browserify -g uglifyify js/client/index.js -o public/app.js -t [ babelify --presets [ es2015 react ] ]"
+    "start": "node app.js"
   },
   "repository": {
     "type": "git",

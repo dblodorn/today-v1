@@ -5,3 +5,16 @@
 =large
   @media (min-width: #{$large-width})
     @content
+
+@keyframes fadeIn
+  from
+    opacity: 0
+  to
+    opactiy: 1
+
+=fade-in($delay : 250ms, $speed : 750ms)
+  animation:
+    name: fadeIn
+    fill-mode: both
+    duration: $speed
+    delay: $delay
