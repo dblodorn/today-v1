@@ -4,6 +4,7 @@ const server = require('http').Server(app);
 const io = require('socket.io')(server);
 const schedule = require('node-schedule');
 const sassMiddleware = require('express-sass-middleware');
+const browserify = require('browserify-middleware');
 const path = require('path');
 const pickImages = require('./js/server/pick-images');
 const listImages = require('./js/server/list-images');
@@ -15,6 +16,7 @@ require('./gulpfile');
 // APP SETUP
 app.set('view engine', 'pug');
 app.use("/public", express.static(__dirname + '/public'));
+app.get('/dist/app.js', browserify(__dirname + '/js/client/index.js'));
 app.get('/dist/app.css', sassMiddleware({ 
   file: './sass/app.sass',
   watch: true,
