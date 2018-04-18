@@ -6,8 +6,10 @@ var gulp        = require('gulp'),
     pickImages  = require('./js/server/pick-images'),
     config      = require('./config.json');
 
+const IMG_COUNT = process.env.IMG_COUNT || 5;
+
 gulp.task('pluck', function(){
-  gulp.imgList = pickImages(config.imgs.start);
+  gulp.imgList = pickImages(config.imgs.start, IMG_COUNT);
 });
 
 gulp.task('move-five', function(){
@@ -29,6 +31,7 @@ gulp.task('clean-plucked', function () {
 });
 
 gulp.task('image-pick', function(cb) {
+  console.log(IMG_COUNT);
   runSequence(
     'clean-current',
     'pluck',

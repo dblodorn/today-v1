@@ -1,12 +1,7 @@
 const socketImageSwap = require('./scripts/socket-image-swap');
 const imagePop = require('./scripts/image-pop');
-// STAGING:
-// socketImageSwap('http://today-counter.dmbk.io');
-// LOCAL:
-socketImageSwap('http://localhost:3001');
-// PRODUCTION:
-// socketImageSwap('http://today.sebastianpardo.com');
-
+socketImageSwap(window.url);
 window.addEventListener('load', (event) => {
   imagePop();
+  console.log('URL:: ', window.url, ' IMG-COUNT:: ', window.imgCount);
 });

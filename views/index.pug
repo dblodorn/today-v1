@@ -9,8 +9,11 @@ html
     script(src="/socket.io/socket.io.js")
     script(src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js")
     script(src="dist/app.js")
+    script.
+      window.url = '#{url}';
+      window.imgCount = '#{imgCount}';
     link(rel="stylesheet" href='dist/app.css' media='all')
-  body
+  body(id=appId)
     main
       aside#popup
         .pop-img

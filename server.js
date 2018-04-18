@@ -13,6 +13,12 @@ const moment = require('moment');
 const gulp = require('gulp');
 require('./gulpfile');
 
+const PORT = process.env.PORT || 3000;
+const URL = process.env.URL || 'http://localhost:3001';
+const APP_ID = process.env.APP_ID || 'today_sebastian-pardo';
+const IMG_COUNT = process.env.IMG_COUNT || 5;
+const INTERVAL = process.env.INTERVAL || 240000;
+
 // APP SETUP
 app.set('view engine', 'pug');
 app.use("/public", express.static(__dirname + '/public'));
@@ -30,13 +36,13 @@ app.imgDir = '/images';
 app.use(app.imgDir, express.static(__dirname + app.imgDir));
 
 // INIT VALUES
-app.todayImages = pickImages(config.imgs.display);
+app.todayImages = pickImages(config.imgs.display, IMG_COUNT);
 app.time = moment().format('kkmmss');
-app.switchTime = 240000;
+app.switchTime = INTERVAL;
 
 // SOCKET FUNCTIONS
 app.imageArray = (broadcast) => {
-  app.todayImages = pickImages(config.imgs.display);
+  app.todayImages = pickImages(config.imgs.display, IMG_COUNT);
   io.emit(broadcast, app.todayImages);
 }
 
@@ -53,15 +59,18 @@ const sced1 = schedule.scheduleJob('* * * * * *', () => {
 
 // APP ROUTES
 app.get('/', (req, res, socket) => {
-  app.todayImages = listImages(config.imgs.display);
-  console.log('today', app.todayImages)
+  app.todayImages = listImages(config.imgs.display, IMG_COUNT);
+  console.log(app.todayImages)
   res.render('index', {
     images: app.todayImages,
-    time: app.time
+    time: app.time,
+    url: URL,
+    appId: APP_ID,
+    imgCount: IMG_COUNT
   })
 })
 
 // SERVER
-server.listen(3001, () => {
-  console.log('RUN TODAY! @ http://localhost:3001');
+server.listen(PORT, () => {
+  console.log(`Running Today on port ${PORT}`);
 })

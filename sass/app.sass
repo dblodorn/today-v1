@@ -1,7 +1,9 @@
 $large-width: 750px
 $med-width: 530px
-$bg-color: #fff8e6
 $base-spacer: 4vmin
+
+$bg-color_spardo: #fff8e6
+$bg-color_memory: #c5c5c5
 
 @import reset
 @import mixins
@@ -11,7 +13,6 @@ body
   margin: 0
   padding: 0
   height: 100%
-  background-color: $bg-color
   +large
     overflow: hidden
     height: 100vh
@@ -24,6 +25,21 @@ body
     ul#images
       opacity: 0!important
       pointer-events: none!important
+
+body
+  &#today_sebastian-pardo
+    background-color: $bg-color_spardo
+    ul#images > li
+      +large
+        width: 18%
+        max-width: 18%
+        
+  &#today_memory
+    background-color: $bg-color_memory
+    ul#images > li
+      +large
+        width: 14%
+        max-width: 14%
 
 main
   +fade-in($delay : 750ms, $speed : 1250ms)
@@ -45,7 +61,7 @@ aside#popup
   top: 0
   left: 0
   opacity: 0
-  transform: scale(0.85)
+  transform: scale(0.95)
   z-index: 1000
   pointer-events: none
 
@@ -86,8 +102,6 @@ ul#images
       max-width: 58vmin
       width: 58vmin
     +large
-      width: 18%
-      max-width: 18%
       padding-bottom: 0
 
 #time
