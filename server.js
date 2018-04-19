@@ -46,9 +46,15 @@ app.imageArray = (broadcast) => {
   io.emit(broadcast, app.todayImages);
 }
 
-const sced1 = schedule.scheduleJob('* * * * * *', () => {
+const sced1 = schedule.scheduleJob('*/15 * * * * *', () => {
   app.time = moment().format('kkmmss');
   io.emit('TIME_STAMP', app.time);
+  
+  gulp.start('image-pick');
+  setTimeout(function(){
+    app.imageArray('IMAGE_SWAP');
+  }, 2000)
+  
   if (app.time == app.switchTime) {
     gulp.start('image-pick');
   }
@@ -60,7 +66,6 @@ const sced1 = schedule.scheduleJob('* * * * * *', () => {
 // APP ROUTES
 app.get('/', (req, res, socket) => {
   app.todayImages = listImages(config.imgs.display, IMG_COUNT);
-  console.log(app.todayImages)
   res.render('index', {
     images: app.todayImages,
     time: app.time,

@@ -31,7 +31,6 @@ gulp.task('clean-plucked', function () {
 });
 
 gulp.task('image-pick', function(cb) {
-  console.log(IMG_COUNT);
   runSequence(
     'clean-current',
     'pluck',

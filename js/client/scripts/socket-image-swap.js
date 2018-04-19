@@ -1,3 +1,5 @@
+const imagePop = require('./image-pop');
+
 const socketImageSwap = (url) => {
   const socket = io.connect(url);
   socket.on('TIME_STAMP', (data) => {
@@ -7,14 +9,17 @@ const socketImageSwap = (url) => {
   });
   socket.on('IMAGE_SWAP', (data) => {
     const imgData = document.getElementById('images');
+    imagePop();
+    const imgLi = (img, i) => {
+      return `<li class="img-wrap" id="img${i}" onClick="clickUp(event);"><img src=${img}></li>`
+    };
+    const imgList = (images) => {
+      return`
+        ${images.map((img, index) => imgLi(img, index)).join('')}
+      `
+    };
     imgData.innerHTML = '';
-    imgData.innerHTML = `
-      <li class="img-wrap" id="img0"><img src=${data[0]}></li>
-      <li class="img-wrap" id="img1"><img src=${data[1]}></li>
-      <li class="img-wrap" id="img2"><img src=${data[2]}></li>
-      <li class="img-wrap" id="img3"><img src=${data[3]}></li>
-      <li class="img-wrap" id="img4"><img src=${data[4]}></li>
-    `;
+    imgData.innerHTML = imgList(data);
   });
 }
 

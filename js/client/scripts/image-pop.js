@@ -1,29 +1,30 @@
 const imagePop = () => {
-  const listLength = document.querySelectorAll('.img-wrap').length;
+  // DOM elements
   const body = document.querySelector('body');
-  const popup = document.querySelector('#popup');
-  const popImg = $('.pop-img');
-  let i = 0;
-  // ClickHandler For Image
-  const clickHandler = (element) => {
-    const currentClickElement = $('#' + element);
-    const currentImg = currentClickElement[0].childNodes[0].attributes[0].nodeValue;
-    currentClickElement.click(() => {
-      body.removeAttribute('class');
-      body.classList.add('pop');
-      $(popImg).css('background-image', 'url(' + currentImg + ')');
-    });
+  const popup = document.getElementById('popup');
+  const popupImg = document.getElementById('popup-img');
+  const popImgs = document.querySelectorAll('.img-wrap');
+  // Popup Open
+  const clickHandler = (e) => {
+    const bgImg = e.path[0].currentSrc;
+    body.removeAttribute('class');
+    body.classList.add('pop');
+    popupImg.style.backgroundImage = `url("${bgImg}")`;
+    e.preventDefault();
   }
-  popup.addEventListener('click', (event) => {
+  // Popup Close
+  popup.addEventListener('click', (e) => {
     setTimeout(() => {
       body.removeAttribute('class');
-      event.preventDefault();
+      e.preventDefault();
+      e.stopPropagation();
     }, 50);
   });
-  while (i < listLength) {
-    clickHandler('img' + i);
-    i++
-  }
-}
+  window.clickUp = function(e) {
+    clickHandler(e);
+    e.preventDefault();
+    e.stopPropagation();
+  };
+};
 
 module.exports = imagePop;

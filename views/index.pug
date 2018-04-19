@@ -16,9 +16,9 @@ html
   body(id=appId)
     main
       aside#popup
-        .pop-img
+        #popup-img
       ul#images
         each img, index in images
-          li(id="img" + index class='img-wrap')
+          li(id="img" + index class='img-wrap' onClick="clickUp(event);")
             image(src= '/' + img)
       #time= time
