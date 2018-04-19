@@ -1,0 +1,9 @@
+{
+  "apps": [
+    {
+      "name": "today-sp",
+      "script": "npm",
+      "args": "run sp"
+    }
+  ]
+}

@@ -1,0 +1,9 @@
+{
+  "apps": [
+    {
+      "name": "today-memory",
+      "script": "npm",
+      "args": "run memory"
+    }
+  ]
+}

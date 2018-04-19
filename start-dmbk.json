@@ -1,0 +1,9 @@
+{
+  "apps": [
+    {
+      "name": "today-dmbk",
+      "script": "npm",
+      "args": "run dmbk"
+    }
+  ]
+}
