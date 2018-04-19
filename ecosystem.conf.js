@@ -1,13 +1,15 @@
 module.exports = {
   apps : [{
-    name: "today-dmbk",
-    script: "./today-dmbk/server.js",
-    watch: true,
-    env: {
-      "PORT": 3000,
-      "URL": "http://today.dmbk.io/",
-      "APP_ID": "today_sebastian-pardo",
-      "IMG_COUNT": 5
-    }
+    "name": "today-dmbk",
+    "script": "npm",
+    "args": "run dmbk"
+  },{
+    "name": "today-memory",
+    "script": "npm",
+    "args": "run memory"
+  },{
+    "name": "today-spardo",
+    "script": "npm",
+    "args": "run spardo"
   }]
 }
