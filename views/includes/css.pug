@@ -1,0 +1,277 @@
+style.
+  html,
+  body,
+  div,
+  span,
+  applet,
+  object,
+  iframe,
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  p,
+  blockquote,
+  pre,
+  a,
+  abbr,
+  acronym,
+  address,
+  big,
+  cite,
+  code,
+  del,
+  dfn,
+  em,
+  img,
+  ins,
+  kbd,
+  q,
+  s,
+  samp,
+  small,
+  strike,
+  strong,
+  sub,
+  sup,
+  tt,
+  var,
+  b,
+  u,
+  i,
+  center,
+  dl,
+  dt,
+  dd,
+  ol,
+  ul,
+  li,
+  fieldset,
+  form,
+  label,
+  legend,
+  table,
+  caption,
+  tbody,
+  tfoot,
+  thead,
+  tr,
+  th,
+  td,
+  article,
+  aside,
+  canvas,
+  details,
+  embed,
+  figure,
+  figcaption,
+  footer,
+  header,
+  hgroup,
+  menu,
+  nav,
+  output,
+  ruby,
+  section,
+  summary,
+  time,
+  mark,
+  audio,
+  video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+  }
+
+  article,
+  aside,
+  details,
+  figcaption,
+  figure,
+  footer,
+  header,
+  hgroup,
+  menu,
+  nav,
+  section {
+    display: block;
+  }
+
+  body {
+    line-height: 1;
+  }
+
+  ol, ul {
+    list-style: none;
+  }
+
+  blockquote,
+  q {
+    quotes: none;
+  }
+
+  blockquote:before,
+  blockquote:after,
+  q:before,
+  q:after {
+    content: "";
+    content: none;
+  }
+
+  table {
+    border-collapse: collapse;
+    border-spacing: 0;
+  }
+
+  body * {
+    box-sizing: border-box;
+    outline: 0;
+  }
+
+  img {
+    width: 100%;
+    height: auto;
+    margin-bottom: -2px;
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opactiy: 1;
+    }
+  }
+  body {
+    font-family: helvetica;
+    margin: 0;
+    padding: 0;
+    height: 100%;
+  }
+  @media (min-width: 750px) {
+    body {
+      overflow: hidden;
+      height: 100vh;
+    }
+  }
+  body.pop aside#popup {
+    cursor: pointer;
+    opacity: 1;
+    pointer-events: auto;
+    transform: scale(1);
+  }
+  body.pop ul#images {
+    opacity: 0 !important;
+    pointer-events: none !important;
+  }
+
+  body#today_sebastian-pardo {
+    background-color: #fff8e6;
+  }
+  @media (min-width: 750px) {
+    body#today_sebastian-pardo ul#images > li {
+      width: 18%;
+      max-width: 18%;
+    }
+  }
+  body#today_memory {
+    background-color: #c5c5c5;
+  }
+  @media (min-width: 750px) {
+    body#today_memory ul#images > li {
+      width: 14%;
+      max-width: 14%;
+    }
+  }
+
+  main {
+    animation-name: fadeIn;
+    animation-fill-mode: both;
+    animation-duration: 1250ms;
+    animation-delay: 750ms;
+    width: 100%;
+    min-height: 100%;
+    padding: 0 4vmin 4vmin;
+  }
+  @media (min-width: 750px) {
+    main {
+      overflow: hidden;
+    }
+  }
+
+  aside#popup {
+    transition: all 500ms ease;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    transform: scale(0.95);
+    z-index: 1000;
+    pointer-events: none;
+  }
+
+  #popup-img {
+    width: 80vw;
+    height: 90vh;
+    max-width: 1240px;
+    transition: transform 100ms ease;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+
+  ul#images {
+    transition: opacity 500ms ease;
+    width: 100%;
+    max-width: 1600px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 4vmin auto 0;
+    position: relative;
+  }
+  @media (min-width: 750px) {
+    ul#images {
+      align-items: flex-start;
+      flex-direction: row;
+      justify-content: space-between;
+      margin: 22vh auto 0;
+    }
+  }
+  ul#images li {
+    width: 100%;
+    max-width: 340px;
+    padding-bottom: 4vmin;
+    transform: scale(0.99);
+    transition: all 250ms ease;
+  }
+  ul#images li:hover {
+    cursor: pointer;
+    transform: scale(1) translateZ(1px);
+  }
+  @media (min-width: 530px) {
+    ul#images li {
+      max-width: 58vmin;
+      width: 58vmin;
+    }
+  }
+  @media (min-width: 750px) {
+    ul#images li {
+      padding-bottom: 0;
+    }
+  }
+
+  #time {
+    display: none;
+  }
