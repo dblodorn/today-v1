@@ -38,15 +38,9 @@ app.imageArray = (broadcast) => {
   io.emit(broadcast, app.todayImages);
 }
 
-const sced1 = schedule.scheduleJob('*/15 * * * * *', () => {
+const sced1 = schedule.scheduleJob('* * * * * *', () => {
   app.time = moment().format('kkmmss');
   io.emit('TIME_STAMP', app.time);
-  
-  gulp.start('image-pick');
-  setTimeout(function(){
-    app.imageArray('IMAGE_SWAP');
-  }, 2000)
-  
   if (app.time == app.switchTime) {
     gulp.start('image-pick');
   }
