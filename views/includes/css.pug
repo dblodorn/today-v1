@@ -147,6 +147,11 @@ style.
       opactiy: 1;
     }
   }
+  
+  html.noscroll {
+    overflow: hidden;
+  }
+  
   body {
     font-family: helvetica;
     margin: 0;
@@ -158,6 +163,10 @@ style.
       overflow: hidden;
       height: 100vh;
     }
+  }
+  body.pop {
+    overflow: visible;
+    height: 100%;
   }
   body.pop aside#popup {
     cursor: pointer;
@@ -220,15 +229,21 @@ style.
     z-index: 1000;
     pointer-events: none;
   }
-
+  /* POPUP */
   #popup-img {
-    width: 80vw;
-    height: 90vh;
+    width: 100vw;
+    height: 100vh;
     max-width: 1240px;
     transition: transform 100ms ease;
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
+  }
+  @media (min-width: 750px) {
+    #popup-img {
+      width: 90vw;
+      height: 90vh;
+    }
   }
 
   ul#images {
