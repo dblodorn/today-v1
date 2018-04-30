@@ -29,7 +29,7 @@
   },
   "devDependencies": {},
   "scripts": {
-    "dev": "URL='http://localhost:3000' APP_ID='today_memory' IMG_COUNT=6 node server.js",
+    "dev": "URL='http://localhost:3000' APP_ID='today_memory' IMG_COUNT=5 node server.js",
     "dmbk": "PORT=3000 URL='http://today.dmbk.io/' APP_ID='today_sebastian-pardo' IMG_COUNT=5 node server.js",
     "sp": "PORT=3001 URL='http://today.sebastianpardo.com/' APP_ID='today_sebastian-pardo' IMG_COUNT=5 node server.js",
     "memory": "PORT=3002 URL='http://today.memory.is/' APP_ID='today_memory' IMG_COUNT=6 node server.js"
